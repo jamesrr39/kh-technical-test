@@ -6,12 +6,11 @@ const styles = {
   letter: {
     width: "50px",
     height: "50px",
+    margin: "10px",
   },
 };
 
-type Props = {};
-
-export default function LettersGrid(props: Props) {
+export default function LettersGrid() {
   const dispatch = useDispatch();
 
   return (

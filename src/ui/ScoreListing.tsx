@@ -1,16 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clear, ItemsSliceState } from "src/itemCounter";
-import {
-  allItemsList,
-  Letter,
-  sortItemsAlphabeticallyFunc,
-} from "src/domain/Item";
-import { calculateScore, LetterResult } from "src/domain/Score";
+import { allItemsList } from "src/domain/Item";
+import { calculateScore } from "src/domain/Score";
+import { clear } from "src/itemCounter";
 import { RootState } from "src/store";
 
-type Props = {};
+const styles = {
+  totalNewGameContainer: {
+    display: "grid",
+    gridTemplateColumns: "auto auto",
+  },
+  tbody: {
+    /* override bootstrap black text in table rule */
+    color: "white",
+  },
+};
 
-export default function ScoreListing(props: Props) {
+export default function ScoreListing() {
   const dispatch = useDispatch();
 
   const { items } = useSelector((state: RootState) => state.itemCounter);
@@ -28,7 +33,7 @@ export default function ScoreListing(props: Props) {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody style={styles.tbody}>
           {
             /* go through each possible letter, see if we have it anywhere in our list. If we have it, render, otherwise ignore
              */ allItemsList.map((item) => {
@@ -50,14 +55,20 @@ export default function ScoreListing(props: Props) {
         </tbody>
       </table>
       <div>Bonuses {result.totals.bonuses}</div>
-      <div>Total {result.totals.score}</div>
-      <button
-        type="button"
-        className="btn btn-default"
-        onClick={() => dispatch(clear())}
-      >
-        New Game
-      </button>
+      <div style={styles.totalNewGameContainer}>
+        <div>
+          Total
+          <br />
+          {result.totals.score}
+        </div>
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={() => dispatch(clear())}
+        >
+          New Game
+        </button>
+      </div>
     </div>
   );
 }
