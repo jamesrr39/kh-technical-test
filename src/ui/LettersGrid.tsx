@@ -7,6 +7,8 @@ const styles = {
     width: "50px",
     height: "50px",
     margin: "10px",
+    backgroundColor: "rgb(69, 6, 179)",
+    border: 0,
   },
 };
 
