@@ -27,3 +27,4 @@ There is also a github workflow set up to lint, test, build and deploy the proje
 - Bootstrap because it's nice to get something working quickly. If optimising for load time/minimal bundle size, it could be removed and the parts we want to keep could be copied in.
 - Scroll bars not applied to the letters grid or player items table; there are not that many items, so scrolling is unlikely, even on small screens (tested in developer tools).
 - Uses standard HTML markup. The tab key can be used to navigate.
+- Tested in the device emulator - the layout works on iPad!
