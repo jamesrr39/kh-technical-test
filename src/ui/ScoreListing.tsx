@@ -31,36 +31,39 @@ export default function ScoreListing() {
 
   return (
     <div>
-      <table className="table">
-        <thead>
-          <tr>
-            <th className="bg-light">Item</th>
-            <th className="bg-light">Qty</th>
-            <th className="bg-light">Score</th>
-          </tr>
-        </thead>
+      {result.letters.size === 0 && <p>No items selected... yet!</p>}
+      {result.letters.size !== 0 && (
+        <table className="table">
+          <thead>
+            <tr>
+              <th className="bg-light">Item</th>
+              <th className="bg-light">Qty</th>
+              <th className="bg-light">Score</th>
+            </tr>
+          </thead>
 
-        <tbody style={styles.tbody}>
-          {
-            /* go through each possible letter, see if we have it anywhere in our list. If we have it, render, otherwise ignore
-             */ allItemsList.map((item) => {
-              const { letter } = item;
-              const resultForLetter = result.letters.get(letter);
-              if (!resultForLetter) {
-                return null;
-              }
+          <tbody style={styles.tbody}>
+            {
+              /* go through each possible letter, see if we have it anywhere in our list. If we have it, render, otherwise ignore
+               */ allItemsList.map((item) => {
+                const { letter } = item;
+                const resultForLetter = result.letters.get(letter);
+                if (!resultForLetter) {
+                  return null;
+                }
 
-              return (
-                <tr key={`letter_${letter}`}>
-                  <td>{letter}</td>
-                  <td>{resultForLetter.qty}</td>
-                  <td>{resultForLetter.score.totalForLetter}</td>
-                </tr>
-              );
-            })
-          }
-        </tbody>
-      </table>
+                return (
+                  <tr key={`letter_${letter}`}>
+                    <td>{letter}</td>
+                    <td>{resultForLetter.qty}</td>
+                    <td>{resultForLetter.score.totalForLetter}</td>
+                  </tr>
+                );
+              })
+            }
+          </tbody>
+        </table>
+      )}
       <div style={styles.bonusContainer}>
         Bonuses <strong>{result.totals.bonuses}</strong>
       </div>
