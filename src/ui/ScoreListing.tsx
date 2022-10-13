@@ -10,11 +10,15 @@ const styles = {
     gridTemplateColumns: "auto auto",
   },
   tbody: {
-    /* override bootstrap black text in table rule */
+    // override bootstrap black text in table rule
     color: "white",
   },
   totalScore: {
     fontSize: "1.5em",
+  },
+  bonusContainer: {
+    borderBottom: "1px solid white",
+    margin: "30px 0px 10px",
   },
 };
 
@@ -27,7 +31,7 @@ export default function ScoreListing() {
 
   return (
     <div>
-      <table className="table table-bordered">
+      <table className="table">
         <thead>
           <tr>
             <th className="bg-light">Item</th>
@@ -57,7 +61,7 @@ export default function ScoreListing() {
           }
         </tbody>
       </table>
-      <div>
+      <div style={styles.bonusContainer}>
         Bonuses <strong>{result.totals.bonuses}</strong>
       </div>
       <div style={styles.totalNewGameContainer}>
