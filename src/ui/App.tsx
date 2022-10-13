@@ -1,3 +1,6 @@
+import LettersGrid from "./LettersGrid";
+import ScoreListing from "./ScoreListing";
+
 const styles = {
   grid: {
     display: "grid",
@@ -13,8 +16,12 @@ export default function App() {
           <h1>Kahoot! Points</h1>
         </div>
         <div>Player Items</div>
-        <div>box3</div>
-        <div>box4</div>
+        <div>
+          <LettersGrid />
+        </div>
+        <div>
+          <ScoreListing />
+        </div>
       </div>
     </div>
   );

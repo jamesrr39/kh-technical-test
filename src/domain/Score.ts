@@ -5,7 +5,7 @@ type ScoreForLetter = {
   bonusValue: number;
 };
 
-type LetterResult = {
+export type LetterResult = {
   qty: number;
   score: ScoreForLetter;
 };

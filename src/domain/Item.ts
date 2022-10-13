@@ -39,9 +39,23 @@ export const D = {
   points: 15,
 };
 
+export function sortItemsAlphabeticallyFunc(a: Item, b: Item) {
+  if (a.letter === b.letter) {
+    return 0;
+  }
+
+  return a.letter < b.letter ? -1 : 1;
+}
+
 export const allItemsMap = new Map<Letter, Item>([
   ["A", A],
   ["B", B],
   ["C", C],
   ["D", D],
 ]);
+
+// build allItemsList at init time. The performance hit is tiny and it ensures the map and list are in sync.
+export const allItemsList: Item[] = [];
+allItemsMap.forEach((item) => allItemsList.push(item));
+// Sort ascending
+allItemsList.sort(sortItemsAlphabeticallyFunc);
