@@ -5,8 +5,8 @@
   "scripts": {
     "start": "ts-node build.ts --watch",
     "build": "ts-node build.ts",
-    "lint:write": "prettier --write .",
-    "lint": "prettier .",
+    "lint:fix": "prettier --write .",
+    "lint": "prettier --check .",
     "test": "jest"
   },
   "dependencies": {
