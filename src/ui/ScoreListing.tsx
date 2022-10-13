@@ -13,6 +13,9 @@ const styles = {
     /* override bootstrap black text in table rule */
     color: "white",
   },
+  totalScore: {
+    fontSize: "1.5em",
+  },
 };
 
 export default function ScoreListing() {
@@ -54,12 +57,14 @@ export default function ScoreListing() {
           }
         </tbody>
       </table>
-      <div>Bonuses {result.totals.bonuses}</div>
+      <div>
+        Bonuses <strong>{result.totals.bonuses}</strong>
+      </div>
       <div style={styles.totalNewGameContainer}>
         <div>
           Total
           <br />
-          {result.totals.score}
+          <strong style={styles.totalScore}>{result.totals.score}</strong>
         </div>
         <button
           type="button"
