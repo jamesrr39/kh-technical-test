@@ -3,12 +3,15 @@ const path = require("path");
 
 const esbuild = require("esbuild");
 
-let watch = false;
+let dev = false;
 process.argv.forEach((arg) => {
-  if (arg === "--watch") {
-    watch = true;
+  if (arg === "--dev") {
+    dev = true;
   }
 });
+
+const watch = dev;
+const minify = !dev;
 
 const startTimeMs = Date.now();
 
@@ -45,6 +48,7 @@ const jsBuild = esbuild.build({
   bundle: true,
   sourcemap: true,
   watch,
+  minify,
 });
 
 const cssBuild = esbuild.build({
@@ -60,6 +64,7 @@ const cssBuild = esbuild.build({
   entryPoints: ["src/index.css"],
   bundle: true,
   watch,
+  minify,
 });
 
 Promise.all([jsBuild, cssBuild]).then(() => {

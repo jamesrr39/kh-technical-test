@@ -28,3 +28,14 @@ There is also a github workflow set up to lint, test, build and deploy the proje
 - Scroll bars not applied to the letters grid or player items table; there are not that many items, so scrolling is unlikely, even on small screens (tested in developer tools).
 - Uses standard HTML markup. The tab key can be used to navigate.
 - Tested in the device emulator - the layout works on iPad!
+
+## Bundle size
+
+```
+filename     | unminified | minified
+-------------+------------+----------
+index.css    | 230K       | 190K
+index.html   | 526        | 526
+index.js     | 1,2M       | 174K
+index.js.map | 2,0M       | 712K
+```
