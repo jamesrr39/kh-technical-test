@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node build.ts --watch",
+    "start": "ts-node build.ts --dev",
     "build": "ts-node build.ts",
     "lint:fix": "prettier --write .",
     "lint": "prettier --check .",
