@@ -24,7 +24,7 @@ export default function App() {
     <div className="container-fluid">
       <div style={styles.grid}>
         <div style={styles.cell}>
-          <h1>Kahoot! Points</h1>
+          <h1>KH! Points</h1>
         </div>
         <div style={styles.rightCell}>
           <h3>Player Items</h3>
